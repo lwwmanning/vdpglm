@@ -2,7 +2,10 @@
 // a datum with storage for cluster weights
 //
 
-#include <vector>
+#include "numerics.hpp"
+
+#ifndef _WEIGHTED_DATUM_
+#define _WEIGHTED_DATUM_
 
 class WeightedDatum
 {
@@ -16,3 +19,5 @@ private:
   bvec _x; // datum
   bvec _w; // weights
 };
+
+#endif
