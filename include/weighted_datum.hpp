@@ -15,6 +15,9 @@ public:
   WeightedDatum(const WeightedDatum & wd) : _x(wd._x), _w(wd._w) {}
   ~WeightedDatum() {}
 
+  //WeightedDatum operator=(const WeightedDatum & rhs);
+  void reweight(const bvec & nw);
+
 private:
   bvec _x; // datum
   bvec _w; // weights
