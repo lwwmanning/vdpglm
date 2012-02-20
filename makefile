@@ -1,16 +1,25 @@
 # Macros
 CC = g++
 CCFLAGS = -Wall
-INCLUDES = -I /usr/local/boost_1_48_0 -I include/
+
+ODIR = obj
+SDIR = src
+IDIR = include
+
+INCLUDES = -I /usr/local/boost_1_48_0 -I $(IDIR)
+TARGET = vdpglm
+
+_OBJS = vdpglm.o
+OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
 
 all: vdpglm 
 clean: 
-	rm -f ./src/*~ ./include/*~ ./src/\#*\# ./include/\#*\# core *.out
+	rm -f $(SDIR)/*~ $(IDIR)/*~ $(SDIR)/\#*\# $(IDIR)/\#*\# core *.out
 clobber: clean
-	rm -f *.o vdpglm
+	rm -f $(ODIR)/*.o ./vdpglm
 
-vdpglm: src/vdpglm.cpp include/weighted_datum.hpp include/numerics.hpp
-	$(CC) $(CCFLAGS) $(INCLUDES) src/vdpglm.cpp -o vdpglm
+vdpglm: $(OBJS)
+	$(CC) $(CCFLAGS) $(INCLUDES) $(OBJS) -o $(TARGET)
 
-#vdpglm.o: src/vdpglm.cpp include/weighted_datum.hpp include/numerics.hpp
-#	$(CC) $(CCFLAGS) $(INCLUDES) -c src/vdpglm.cpp
+$(ODIR)/%.o: $(SDIR)/%.cpp $(IDIR)/*
+	$(CC) $(CCFLAGS) $(INCLUDES) -o $@ -c $<
