@@ -13,13 +13,13 @@ TARGET = varreg
 _OBJS = vdpglm.o datum.o varreg.o
 OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
 
-all: vdpglm 
+all: $(TARGET) 
 clean: 
 	rm -f $(SDIR)/*~ $(IDIR)/*~ $(SDIR)/\#*\# $(IDIR)/\#*\# core *.out
 clobber: clean
 	rm -f $(ODIR)/*.o ./vdpglm
 
-vdpglm: $(OBJS)
+$(TARGET): $(OBJS)
 	$(CC) $(CCFLAGS) $(INCLUDES) $(OBJS) -o $(TARGET)
 
 $(ODIR)/%.o: $(SDIR)/%.cpp $(IDIR)/*
