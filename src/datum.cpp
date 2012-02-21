@@ -1,4 +1,4 @@
-#include "weighted_datum.hpp"
+#include "datum.hpp"
 
 void
 WeightedDatum::reweight(const bvec & nw)

@@ -3,7 +3,8 @@
 //
 
 #include "numerics.hpp"
-#include "weighted_datum.hpp"
+#include "datum.hpp"
+#include "vdpglm.hpp"
 
 int
 main(int argc, char** argv)
