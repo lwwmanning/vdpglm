@@ -17,7 +17,7 @@ all: $(TARGET)
 clean: 
 	rm -f $(SDIR)/*~ $(IDIR)/*~ $(SDIR)/\#*\# $(IDIR)/\#*\# core *.out
 clobber: clean
-	rm -f $(ODIR)/*.o ./vdpglm
+	rm -f $(ODIR)/*.o $(TARGET)
 
 $(TARGET): $(OBJS)
 	$(CC) $(CCFLAGS) $(INCLUDES) $(OBJS) -o $(TARGET)

@@ -1,10 +1,11 @@
 //
 // an abstract base class for conjugate-exponential distributions
-// function objects
 //
 
 #include "datum.hpp"
 #include <vector>
+#include <map>
+#include <boost/any.hpp>
 
 #ifndef _CONJ_EXP_DIST_
 #define _CONJ_EXP_DIST_
@@ -12,13 +13,13 @@
 class ConjExpDist
 {
 public:
-  virtual ~ConjExpDist() = 0;
-  virtual void operator()(std::vector<WeightedDatum> & data) const = 0;
+  ConjExpDist() : _theta() {}
+  ConjExpDist(const ConjExpDist & rhs) : _theta(rhs._theta) {}
+  virtual ~ConjExpDist() { }
+  virtual void operator()(std::vector<WeightedDatum> & data) = 0;
 
-private:
-  ConjExpDist() { }
-  ConjExpDist(const ConjExpDist & rhs) { }
-  ConjExpDist& operator=(const ConjExpDist & rhs) { return *this; }
+protected:
+  std::map<std::string, boost::any> _theta;
 };
 
 #endif
