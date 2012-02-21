@@ -1,1 +1,5 @@
-This module is developed as an experimental implementation of the variational interence algorithm derived in Lawrence W. Manning's Princeton University thesis entitled "Mean Field Variational Inference for Dirichlet Process mixtures of Generalized Linear Models and Applications in Approximate Q-learning". 
+This module is developed as an experimental implementation of the variational interence algorithm derived in Lawrence W. Manning's Princeton University senior thesis. 
+
+This algorithm uses non-linear optimization to find the tractable distribution that minimizes the Kullback-Leibler divergence with respect to the true (but presumably intractable) posterior of a Dirichlet Process mixture of Generalized Linear Models (DP-GLM). 
+
+Currently, we are seeking to implement mixtures of Gaussian distributions for the covariates and mixtures of Bayesian linear regressions for the response variable within an extensible framework.
