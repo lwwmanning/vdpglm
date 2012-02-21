@@ -5,6 +5,7 @@
 #include "numerics.hpp"
 #include "datum.hpp"
 #include "vdpglm.hpp"
+#include "distribution.hpp"
 
 int
 main(int argc, char** argv)
