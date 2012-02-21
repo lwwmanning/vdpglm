@@ -7,9 +7,9 @@ SDIR = src
 IDIR = include
 
 INCLUDES = -I /usr/local/boost_1_48_0 -I $(IDIR)
-TARGET = vdpglm
+TARGET = bnpreg
 
-_OBJS = vdpglm.o weighted_datum.o
+_OBJS = vdpglm.o weighted_datum.o bnpreg.o
 OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
 
 all: vdpglm 
