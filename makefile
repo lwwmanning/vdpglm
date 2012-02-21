@@ -1,6 +1,7 @@
 # Macros
 CC = g++
-CCFLAGS = -Wall
+CCFLAGS = -Wall -Werror -pedantic
+#CCFLAGS = -Weffc++
 
 ODIR = obj
 SDIR = src
