@@ -1,25 +1,30 @@
 //
 // an abstract base class for conjugate-exponential distributions
+// operates as a functor on data to return sufficient statistics
 //
 
+#include "numerics.hpp"
 #include "datum.hpp"
 #include <vector>
-#include <map>
-#include <boost/any.hpp>
 
-#ifndef _CONJ_EXP_DIST_
-#define _CONJ_EXP_DIST_
+#ifndef _DISTRIBUTION_
+#define _DISTRIBUTION_
 
-class ConjExpDist
+class Distribution
 {
 public:
-  ConjExpDist() : _theta() {}
-  ConjExpDist(const ConjExpDist & rhs) : _theta(rhs._theta) {}
-  virtual ~ConjExpDist() { }
-  virtual void operator()(std::vector<WeightedDatum> & data) = 0;
+  virtual ~Distribution() { }
 
-protected:
-  std::map<std::string, boost::any> _theta;
+  // returns sufficient statistics
+  virtual numeric operator()(const WeightedDatum & datum) const = 0;
+  virtual numeric operator()(const std::vector<WeightedDatum> & data) const = 0;
+  virtual bool is_conjuate() { return false; }
+};
+
+class ConjExpDist : public Distribution
+{
+public:
+  virtual bool is_conjugate() { return true; }
 };
 
 #endif
