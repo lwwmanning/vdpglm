@@ -7,7 +7,7 @@ ODIR = obj
 SDIR = src
 IDIR = include
 
-INCLUDES = -I /usr/local/boost_1_48_0 -I $(IDIR)
+INCLUDES = -I /usr/local/boost_1_49_0 -I $(IDIR)
 TARGET = bnpreg
 
 _OBJS = vdpglm.o datum.o bnpreg.o
