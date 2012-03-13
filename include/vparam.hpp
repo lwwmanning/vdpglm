@@ -14,6 +14,6 @@ public:
   
   // update the parameter from a new cumulative sufficient statistic
   virtual void update(const numeric & tx) = 0;
-}
+};
 
 #endif
